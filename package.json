@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node node_modules/.bin/wdio wdio.conf.js"
   },
-  "author": "Sebastian Sierra",
+  "author": "Sebastian Sierra - Updated by: Juan Mojica",
   "license": "ISC",
   "devDependencies": {
     "chai": "4.2.0"
