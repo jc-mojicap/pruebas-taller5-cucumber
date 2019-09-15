@@ -35,6 +35,20 @@ When('I try to login', () => {
   cajaLogIn.$('button=Ingresar').click();
 });
 
-Then('I expect to not be able to login', () => {
-  $('.aviso.alert.alert-danger').waitForDisplayed(5000);
+When(/^I fill with (.*) and (.*)$/ , (email, password) => {
+    var cajaLogIn = $('.cajaLogIn');
+
+    var mailInput = cajaLogIn.$('input[name="correo"]');
+    mailInput.click();
+    mailInput.setValue(email);
+
+    var passwordInput = cajaLogIn.$('input[name="password"]');
+    passwordInput.click();
+    passwordInput.setValue(password);
+});
+
+Then(/^I expect to see (.*)/, (error) => {
+    $('.aviso.alert.alert-danger').waitForDisplayed(5000);
+    var alertText = $('.aviso.alert.alert-danger').getText('.aviso.alert.alert-danger');
+    expect(alertText).contains(error);
 });
