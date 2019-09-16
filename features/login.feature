@@ -24,3 +24,12 @@ Feature: Login into losestudiantes
 		And I fill a correct email and password
 		And I try to login
 		Then I expect to be able to login
+
+
+	Scenario: Login success with correct inputs
+
+		Given I go to losestudiantes home screen
+		When I open the login screen
+		And I fill a correct email and password
+		And I try to login
+		Then I expect to be able to login
