@@ -52,3 +52,22 @@ Then(/^I expect to see (.*)/, (error) => {
     var alertText = $('.aviso.alert.alert-danger').getText('.aviso.alert.alert-danger');
     expect(alertText).contains(error);
 });
+
+When('I fill a correct email and password', () => {
+  var cajaLogIn = $('.cajaLogIn');
+
+  var mailInput = cajaLogIn.$('input[name="correo"]');
+  mailInput.click();
+  mailInput.setValue('jc.mojicap@uniandes.edu.co');
+
+  var passwordInput = cajaLogIn.$('input[name="password"]');
+  passwordInput.click();
+  passwordInput.setValue('myPassword123');
+});
+
+
+Then('I expect to be able to login', () => {
+    $('#cuenta').waitForExist(5000);;
+});
+
+
